@@ -12,15 +12,14 @@ class Ceasar < CryptoAlgorithm
     private
 
     def self.base(str, key=nil)
-        type = key ? :decode : :encode
+        type = self.type?(key)
         key ||= self.random_key
+        key = key.to_i
         result = str.chars.map do |char|
-            char_ = char.downcase
-            if alphabet.include?(char_)
-                index = get_char_index(char_)
+            if alphabet.include?(char)
+                index = get_char_index(char)
                 new_index = type == :encode ? index + key : index - key
                 result_char = alphabet[new_index % alphabet.size]
-                char == char_ ? result_char : result_char.upcase
             else
                 char
             end
@@ -29,7 +28,7 @@ class Ceasar < CryptoAlgorithm
         {
             str: str,
             result: result.join,
-            key: key
+            key: key.to_s
         }
     end
 

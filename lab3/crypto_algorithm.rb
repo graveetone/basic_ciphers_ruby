@@ -10,4 +10,8 @@ class CryptoAlgorithm
     def self.decode(str, key)
         raise "#{__method__} not implemented!"
     end
+
+    def self.type?(key)
+        key ? :decode : :encode
+    end
 end
