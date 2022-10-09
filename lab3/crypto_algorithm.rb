@@ -1,5 +1,6 @@
 require 'byebug'
 require 'colorize'
+require_relative 'helpers'
 
 class CryptoAlgorithm
     def self.encode(str)
