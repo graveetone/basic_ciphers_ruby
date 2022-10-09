@@ -1,4 +1,4 @@
-files = %w[helpers ceasar vernam hill]
+files = %w[helpers ceasar vernam hill xor]
 
 files.each { |file| require_relative file }
 
@@ -27,3 +27,11 @@ puts
 
 dha = Hill.decode(ha[:result], ha[:key])
 puts decorated_decoded(dha)
+
+xora = Xor.encode(test_string)
+puts decorated_encoded(xora)
+
+puts
+
+xorda = Xor.decode(xora[:result], xora[:key])
+puts decorated_decoded(xorda)
