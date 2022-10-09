@@ -1,4 +1,4 @@
-files = %w[helpers caesar]
+files = %w[helpers ceasar vernam]
 
 files.each { |file| require_relative file }
 
@@ -11,3 +11,11 @@ puts
 
 dca = Ceasar.decode(ca[:result], ca[:key])
 puts decorated_decoded(dca)
+
+va = Vernam.encode(test_string)
+puts decorated_encoded(va)
+
+puts
+
+dva = Vernam.decode(va[:result], va[:key])
+puts decorated_decoded(dva)
